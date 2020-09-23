@@ -135,14 +135,7 @@ func (self *luaState) ToNumber(idx int) float64 {
 // http://www.lua.org/manual/5.3/manual.html#lua_tonumberx
 func (self *luaState) ToNumberX(idx int) (float64, bool) {
 	val := self.stack.get(idx)
-	switch x := val.(type) {
-	case float64:
-		return x, true
-	case int64:
-		return float64(x), true
-	default:
-		return 0, false
-	}
+	return convertToFloat(val)
 }
 
 // [-0, +0, m]
