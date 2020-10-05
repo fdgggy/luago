@@ -26,6 +26,11 @@ func main() {
 	printStack(ls)
 	ls.SetTop(-5)
 	printStack(ls)
+	ls.PushString("hello world!")
+	printStack(ls)
+	ls.SetTop(0)
+	printStack(ls)
+
 }
 
 func printStack(ls LuaState) {
